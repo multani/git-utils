@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ "${1}" == "" ]; then
+if [ "${1}" = "" ]; then
   echo "git-switch <branch>"
 fi
 
@@ -11,7 +11,7 @@ CURRENT_BRANCH=$(git branch >/dev/null 2>&1; if [ $? -eq 0 ]; then echo "$(git b
 git stash save autostash >/dev/null 2>&1
 git checkout ${NEW_BRANCH}
 
-if [ "$?" == "1" ]; then
+if [ "$?" = "1" ]; then
   git branch ${NEW_BRANCH}
   git checkout ${NEW_BRANCH}
 fi
